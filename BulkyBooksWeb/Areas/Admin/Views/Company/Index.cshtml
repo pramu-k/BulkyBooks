@@ -1,0 +1,51 @@
+﻿<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div>
+                <h2>
+                    Company List
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6 text-end">
+                <a asp-controller="Company" asp-action="Upsert" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Add New Company</a>
+            </div>
+        </div>
+        <table id="tblCompanys" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Phone Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            @* <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Category.Name</td>
+                        <td>
+                            <a asp-controller="Company" asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a asp-controller="Company" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody> *@
+        </table>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/company.js"></script>
+}
+
+

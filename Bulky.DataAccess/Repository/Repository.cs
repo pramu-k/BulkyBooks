@@ -17,11 +17,12 @@ namespace Bulky.DataAccess.Repository
         public Repository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
-            this.dbSet = _dbContext.Set<T>();
+            this.dbSet = _dbContext.Set<T>(); //Here we set the incoming model to the dbSet.
         }
         public void Add(T entity)
         {
             dbSet.Add(entity);
+            //since we assigned the incoming entity to dbset, this expression is equivalent to _dbContext.Categories.Add(entity)
         }
 
         public T Get(Expression<Func<T, bool>> filter, string? includeProperties = null)
