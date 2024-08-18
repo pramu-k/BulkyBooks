@@ -1,0 +1,51 @@
+﻿@model ShoppingCartVM
+
+<div class="container">
+    <h1 class="mb-4">Shopping Cart</h1>
+
+    <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-secondary mb-3">CONTINUE SHOPPING</a>
+
+        <div class="card">
+            <div class="card-body">
+                @foreach (var item in Model.ShoppingCartList)
+                {
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-2">
+                            <img src="/@item.Product.ImageUrl" alt="Product Image" style="max-height:100px; max-width:100px; ">
+                        </div>
+                        <div class="col-4">
+                            <h5>@item.Product.Title</h5>
+                            <p class="text-muted">@Html.Raw(@item.Product.Description)</p>
+                        </div>
+                        <div class="col-3">
+                            <div class="input-group">
+                                <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-outline-secondary">-</a>
+                                <input type="text" class="form-control text-center" value="@item.Count">
+                                <a asp-action="plus" asp-route-cartId="@item.Id" class="btn btn-outline-secondary">+</a>
+                            </div>
+                        </div>
+                        <div class="col-2 text-end">
+                            <p>$@(item.Price)</p>
+                        </div>
+                        <div class="col-1 text-end">
+                        <a asp-action="remove" asp-route-cartId="@item.Id" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-6 offset-md-6">
+                    <h5 class="text-end">TOTAL (USD): @Model.OrderTotal.ToString("c")</h5>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a asp-action="summary" class="btn btn-primary">SUMMARY</a>
+                </div>
+            </div>
+        </div>
+</div>
