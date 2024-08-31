@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository.IRepository
 {
-    public interface IOrderDetailRepository:IRepository<ShoppingCart>
+    public interface IOrderDetailRepository:IRepository<OrderDetail>
     {
         void Update(OrderDetail orderDetailObj);
     }
