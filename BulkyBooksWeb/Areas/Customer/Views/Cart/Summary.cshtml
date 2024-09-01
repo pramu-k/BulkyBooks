@@ -6,10 +6,11 @@
     </div>
 
     <div class="row mt-4">
+        <form method="post">
         <div class="col-md-6">
             <div class="bg-white p-4 rounded shadow">
                 <h4>Shipping Details</h4>
-                <form>
+                
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input asp-for="OrderHeader.Name" type="text" class="form-control" id="name">
@@ -46,7 +47,7 @@
                         </p>
                     </div>
                     
-                </form>
+                
             </div>
         </div>
 
@@ -74,8 +75,9 @@
                     </tbody>
                 </table>
                 <h5>Total: @Model.OrderHeader.OrderTotal.ToString("c")</h5>
-                <button class="btn btn-success btn-block">Place Order</button>
+                <button asp-controller="Cart" asp-action="Summary" class="btn btn-success btn-block">Place Order</button>
             </div>
         </div>
+        </form>
     </div>
 </div>
