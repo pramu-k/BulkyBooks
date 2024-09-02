@@ -26,6 +26,7 @@ namespace Bulky.Models
         public string? Carrier { get; set; }
         public DateTime PaymentDate { get; set; }
         public DateOnly PaymentDueDate { get; set; }
+        public string? SessionId { get; set; } //this property is to record the sessionId created by stripe
         public string? PaymentIntentId { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
