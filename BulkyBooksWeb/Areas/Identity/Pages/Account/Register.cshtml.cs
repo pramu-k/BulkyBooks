@@ -117,6 +117,8 @@ namespace BulkyBooksWeb.Areas.Identity.Pages.Account
             public string? StreetAddress { get; set; }
             public string? City { get; set; }
             public string? PhoneNumber { get; set; }
+            public string? District { get; set; }
+            public string? PostalCode { get; set; }
             public int? CompanyId { get; set; }
             [ValidateNever]
             public IEnumerable<SelectListItem> CompanyList { get; set; }
@@ -164,6 +166,8 @@ namespace BulkyBooksWeb.Areas.Identity.Pages.Account
                 user.Name = Input.Name;
                 user.StreetAddress = Input.StreetAddress;
                 user.City = Input.City;
+                user.District = Input.District;
+                user.PostalCode = Input.PostalCode;
                 user.PhoneNumber = Input.PhoneNumber;
                 if (Input.Role == SD.Role_Company)
                 {
