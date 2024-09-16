@@ -1,0 +1,46 @@
+﻿<h1>Order Details Index page</h1>
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div>
+                <h2>
+                    Order List
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table id="tblOrders" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            @* <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Category.Name</td>
+            <td>
+            <a asp-controller="Product" asp-action="Upsert" asp-route-id="@item.Id" class="btn btn-outline-dark"><i class="bi bi-pencil-square"></i> Edit</a>
+            <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+            </td>
+            </tr>
+            }
+            </tbody> *@
+        </table>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/js/order.js"></script>
+}
+
+
