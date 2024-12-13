@@ -4,6 +4,7 @@ using Bulky.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bulky.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240818130057_addOrderHeaderAndDetailsToDb")]
+    partial class addOrderHeaderAndDetailsToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,21 +51,21 @@ namespace Bulky.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDateTime = new DateTime(2024, 9, 2, 11, 6, 31, 721, DateTimeKind.Local).AddTicks(7536),
+                            CreatedDateTime = new DateTime(2024, 8, 18, 18, 30, 53, 603, DateTimeKind.Local).AddTicks(9274),
                             DisplayOrder = 1,
                             Name = "Action"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDateTime = new DateTime(2024, 9, 2, 11, 6, 31, 721, DateTimeKind.Local).AddTicks(7546),
+                            CreatedDateTime = new DateTime(2024, 8, 18, 18, 30, 53, 603, DateTimeKind.Local).AddTicks(9287),
                             DisplayOrder = 2,
                             Name = "SciFi"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDateTime = new DateTime(2024, 9, 2, 11, 6, 31, 721, DateTimeKind.Local).AddTicks(7547),
+                            CreatedDateTime = new DateTime(2024, 8, 18, 18, 30, 53, 603, DateTimeKind.Local).AddTicks(9288),
                             DisplayOrder = 3,
                             Name = "History"
                         });
@@ -220,9 +223,6 @@ namespace Bulky.DataAccess.Migrations
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SessionId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ShippingDate")

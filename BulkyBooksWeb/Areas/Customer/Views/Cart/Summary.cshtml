@@ -1,0 +1,83 @@
+﻿@model ShoppingCartVM
+<div class="container mt-5">
+    <div class="bg-secondary text-white p-3 rounded">
+        <h2>Order Summary</h2>
+        <a asp-controller="Cart" asp-action="Index">Back to Cart</a>
+    </div>
+
+    <div class="row mt-4">
+        <form method="post">
+        <div class="col-md-6">
+            <div class="bg-white p-4 rounded shadow">
+                <h4>Shipping Details</h4>
+                
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input asp-for="OrderHeader.Name" type="text" class="form-control" id="name">
+                        <span asp-validation-for="OrderHeader.Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input asp-for="OrderHeader.PhoneNumber" type="tel" class="form-control" id="phone">
+                        <span asp-validation-for="OrderHeader.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Street Address</label>
+                        <input asp-for="OrderHeader.StreetAddress" type="text" class="form-control" id="address">
+                        <span asp-validation-for="OrderHeader.StreetAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input asp-for="OrderHeader.City" type="text" class="form-control" id="city">
+                        <span asp-validation-for="OrderHeader.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">District</label>
+                        <input asp-for="OrderHeader.District" type="text" class="form-control" id="state">
+                        <span asp-validation-for="OrderHeader.District" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal">Postal Code</label>
+                        <input asp-for="OrderHeader.PostalCode" type="text" class="form-control" id="postal">
+                        <span asp-validation-for="OrderHeader.PostalCode" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <p>Estimate Arrival Date :
+                            @DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()
+                        </p>
+                    </div>
+                    
+                
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="bg-white p-4 rounded shadow">
+                <h4>Order Summary</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var cartItem in Model.ShoppingCartList)
+                        {
+                            <tr>
+                                <td>@cartItem.Product.Title</td>
+                                <td>@cartItem.Count</td>
+                                <td>@((cartItem.Price * cartItem.Count).ToString("c"))</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <h5>Total: @Model.OrderHeader.OrderTotal.ToString("c")</h5>
+                <button asp-controller="Cart" asp-action="Summary" class="btn btn-success btn-block">Place Order</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
